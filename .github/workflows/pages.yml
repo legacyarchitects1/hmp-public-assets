@@ -22,6 +22,10 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+          # GitHub's built-in token cannot switch Pages on. If Pages is still off,
+          # add a fine-grained token (Administration + Pages: read/write) as the
+          # repo secret PAGES_ADMIN_TOKEN and this step turns Pages on by itself.
+          token: ${{ secrets.PAGES_ADMIN_TOKEN || github.token }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
