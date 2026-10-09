@@ -450,7 +450,7 @@
     var w = h('div', { 'class': 'wrap' });
     if (!teacherOK()) {
       var code = h('input', { type: 'text', autocomplete: 'off', placeholder: 'Teacher access code', 'aria-label': 'Teacher access code' }), m = h('div', { 'aria-live': 'polite' });
-      function tryCode() { if (fnv(code.value.trim().toUpperCase()) === TEACHER_HASH) { try { sessionStorage.setItem('hmp-stem-teacher', TEACHER_HASH); } catch (e) { window._hmpT = 1; } render(); } else fb(m, false, 'That code did not work. It is printed in the Teacher’s Edition.'); }
+      function tryCode() { if (fnv(code.value.trim().toUpperCase()) === TEACHER_HASH) { try { sessionStorage.setItem('hmp-stem-teacher', TEACHER_HASH); } catch (e) { window._hmpT = 1; } render(); } else fb(m, false, 'That code did not work. Use the code that came with your Teacher’s Edition.'); }
       code.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryCode(); });
       w.appendChild(h('h1', { text: 'Teacher & Grown-up Hub' }));
       w.appendChild(h('p', { text: 'For teachers, homeschool parents and group leaders: the facilitator guide, answer key, rubric grading, class gradebook and the Family STEM Night Kit.' }));
